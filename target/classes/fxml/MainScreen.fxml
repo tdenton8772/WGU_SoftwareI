@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+
+<GridPane fx:controller="com.mycompany.mavenproject1.FXMLController" 
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          styleClass="root" gridLinesVisible="false" >
+    <padding>
+        <Insets top="5" right="10" bottom="10" left="10"/>
+    </padding>
+    <HBox GridPane.columnIndex="0" GridPane.rowIndex="1"
+          GridPane.columnSpan="4"
+          prefHeight="50"
+          prefWidth="800">
+        
+        <Text id="welcome-text" 
+              text="Inventory Management System" />
+    </HBox>
+    
+    <VBox id="vbox" prefHeight="300" prefWidth="450" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
+        <HBox>
+            <HBox alignment="CENTER_LEFT">
+                <Label id="titles" text="Parts:"/>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefWidth="375" >
+                <HBox id="spaced_buttons">
+                    <Button text="Search" onAction="#handleAboutAction" />
+                </HBox>
+                <TextField  />
+            </HBox>
+        </HBox>
+        <Label prefHeight="250" text="PlaceHolder for Table" style="-fx-border-size: 1px;" />
+        <HBox alignment="CENTER_RIGHT" >
+            <HBox id="spaced_buttons">
+                <Button text="Add" onAction="#handleAddPartStageAction" />
+            </HBox>
+            
+            <HBox id="spaced_buttons">
+                <Button text="Modify" onAction="#handleModifyPartStageAction" />
+            </HBox>
+            
+            <HBox id="spaced_buttons">
+                <Button text="Delete" onAction="#handleAboutAction" />
+            </HBox>
+        </HBox>
+    </VBox>   
+    
+    <VBox id="vbox" prefHeight="300" prefWidth="450" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
+        <HBox> 
+            <HBox alignment="CENTER_LEFT">
+                <Label id="titles" text="Products:"/>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefWidth="375" >
+                <HBox id="spaced_buttons">
+                    <Button text="Search" onAction="#handleAboutAction" />
+                </HBox>
+                <TextField  />
+            </HBox>
+        </HBox>
+        <Label prefHeight="250" text="PlaceHolder for Table" />
+        <HBox alignment="CENTER_RIGHT" >
+            <HBox id="spaced_buttons">
+                <Button text="Add" onAction="#handleAddProductStageAction" />
+            </HBox>
+            
+            <HBox id="spaced_buttons">
+                <Button text="Modify" onAction="#handleModifyProductStageAction" />
+            </HBox>
+            
+            <HBox id="spaced_buttons">
+                <Button text="Delete" onAction="#handleAboutAction" />
+            </HBox>
+        </HBox>
+        
+        
+    </VBox>  
+    <stylesheets>
+        <URL value="@/styles/Styles.css" />
+    </stylesheets>
+    <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="5">
+        <Button text="Exit" onAction="#handleAboutAction" />
+    </HBox>  
+</GridPane>
+
