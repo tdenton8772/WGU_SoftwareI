@@ -23,19 +23,22 @@
               text="Inventory Management System" />
     </HBox>
     
-    <VBox id="vbox" prefHeight="300" prefWidth="450" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
+    <VBox id="vbox" prefHeight="300" prefWidth="400" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
         <HBox>
             <HBox alignment="CENTER_LEFT">
                 <Label id="titles" text="Parts:"/>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefWidth="375" >
+            <HBox alignment="CENTER_RIGHT" prefWidth="300" >
                 <HBox id="spaced_buttons">
                     <Button text="Search" onAction="#handleAboutAction" />
                 </HBox>
                 <TextField  />
             </HBox>
         </HBox>
-        <Label prefHeight="250" text="PlaceHolder for Table" style="-fx-border-size: 1px;" />
+        
+        <TableView >
+        </TableView>
+             
         <HBox alignment="CENTER_RIGHT" >
             <HBox id="spaced_buttons">
                 <Button text="Add" onAction="#handleAddPartStageAction" />
@@ -51,19 +54,20 @@
         </HBox>
     </VBox>   
     
-    <VBox id="vbox" prefHeight="300" prefWidth="450" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
+    <VBox id="vbox" prefHeight="300" prefWidth="300" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
         <HBox> 
             <HBox alignment="CENTER_LEFT">
                 <Label id="titles" text="Products:"/>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefWidth="375" >
+            <HBox alignment="CENTER_RIGHT" prefWidth="300" >
                 <HBox id="spaced_buttons">
                     <Button text="Search" onAction="#handleAboutAction" />
                 </HBox>
                 <TextField  />
             </HBox>
         </HBox>
-        <Label prefHeight="250" text="PlaceHolder for Table" />
+        <TableView >
+        </TableView>
         <HBox alignment="CENTER_RIGHT" >
             <HBox id="spaced_buttons">
                 <Button text="Add" onAction="#handleAddProductStageAction" />

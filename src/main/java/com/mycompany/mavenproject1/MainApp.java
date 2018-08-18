@@ -14,7 +14,7 @@ class AddPartStage {
         Stage subStage = new Stage();
         subStage.setTitle("Add Part");
 
-        Scene scene = new Scene(root, 300, 200);
+        Scene scene = new Scene(root, 400, 300);
         
         subStage.setScene(scene);
         subStage.show();
@@ -25,11 +25,11 @@ class AddPartStage {
 class ModifyPartStage {
     ModifyPartStage() throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddPart.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ModifyPart.fxml"));
         Stage subStage = new Stage();
         subStage.setTitle("Modify Part");
 
-        Scene scene = new Scene(root, 300, 200);
+        Scene scene = new Scene(root, 400, 300);
         
         subStage.setScene(scene);
         subStage.show();
@@ -40,7 +40,7 @@ class ModifyPartStage {
 class AddProductStage {
     AddProductStage() throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddPart.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddProduct.fxml"));
         Stage subStage = new Stage();
         subStage.setTitle("Add Product");
 
@@ -55,7 +55,7 @@ class AddProductStage {
 class ModifyProductStage {
     ModifyProductStage() throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AddPart.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ModifyProduct.fxml"));
         Stage subStage = new Stage();
         subStage.setTitle("Modify Product");
 
