@@ -5,7 +5,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
 
 
 <GridPane fx:controller="com.mycompany.mavenproject1.FXMLController" 
@@ -17,14 +18,14 @@
     <HBox GridPane.columnIndex="0" GridPane.rowIndex="1"
           GridPane.columnSpan="4"
           prefHeight="50"
-          prefWidth="800">
+          prefWidth="1000">
         
         <Text id="welcome-text" 
               text="Inventory Management System" />
-    </HBox>
+    </HBox>  
     
-    <VBox id="vbox" prefHeight="300" prefWidth="400" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
-        <HBox>
+    <VBox id="vbox" prefHeight="300" prefWidth="500" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
+        <HBox prefWidth="500" >
             <HBox alignment="CENTER_LEFT">
                 <Label id="titles" text="Parts:"/>
             </HBox>
@@ -36,7 +37,32 @@
             </HBox>
         </HBox>
         
-        <TableView >
+        <TableView editable="true" >
+            <columns>
+                <TableColumn fx:id="part_ID" text="Part ID" prefWidth="75" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="partID" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="part_Name" text="Part Name" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="partName" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="part_Inv" text="Inventory Level" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="partInv" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="part_Price" text="Price/Cost per Unit" prefWidth="175">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="partCost" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns> 
+            <sortOrder>
+                <fx:reference source="part_ID"/>
+            </sortOrder> 
         </TableView>
              
         <HBox alignment="CENTER_RIGHT" >
@@ -54,8 +80,8 @@
         </HBox>
     </VBox>   
     
-    <VBox id="vbox" prefHeight="300" prefWidth="300" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
-        <HBox> 
+    <VBox id="vbox" prefHeight="300" prefWidth="200" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.columnSpan="2" >
+        <HBox prefWidth="500" > 
             <HBox alignment="CENTER_LEFT">
                 <Label id="titles" text="Products:"/>
             </HBox>
@@ -66,8 +92,34 @@
                 <TextField  />
             </HBox>
         </HBox>
-        <TableView >
+        <TableView editable="true" >
+            <columns>
+                <TableColumn fx:id="product_ID" text="Product ID" prefWidth="95" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productID" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="product_Name" text="Product Name" prefWidth="115">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productName" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="product_Inv" text="Inventory Level" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productInv" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="product_Price" text="Price/Cost per Unit" prefWidth="175">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productCost" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns> 
+            <sortOrder>
+                <fx:reference source="product_ID"/>
+            </sortOrder> 
         </TableView>
+        
         <HBox alignment="CENTER_RIGHT" >
             <HBox id="spaced_buttons">
                 <Button text="Add" onAction="#handleAddProductStageAction" />

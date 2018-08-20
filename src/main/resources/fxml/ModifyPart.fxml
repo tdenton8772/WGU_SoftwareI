@@ -26,54 +26,52 @@
 
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="1">
-        <Text text="ID:"/>
+        <Text text="ID:" />
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="4">
-        <TextField />
+        <TextField promptText="Auto Gen - Disabled"  />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="1">
         <Text text="Name:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="4">
-        <TextField />
+        <TextField promptText="Part Name" />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="1">
         <Text text="Inv:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="4">
-        <TextField />
+        <TextField promptText="Inv" />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="1">
         <Text text="Price/Cost:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="4">
-        <TextField />
+        <TextField promptText="Price/Cost" />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="1">
-        <Text text="Min:"/>
+        <Text text="Max:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.columnSpan="1">
-        <TextField />
+        <TextField promptText="Max" />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="3" GridPane.rowIndex="5" GridPane.columnSpan="1">
-        <Text text="Max:"/>
+        <Text text="Min:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="4" GridPane.rowIndex="5" GridPane.columnSpan="1">
-        <TextField />
+        <TextField promptText="Min" />
     </HBox>
-    
-    
-    
+
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="1">
         <Text text="Company Name:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="4">
-        <TextField />
+        <TextField promptText="Comp Nm" />
     </HBox>
 
     <HBox alignment="CENTER_RIGHT" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.columnSpan="4">

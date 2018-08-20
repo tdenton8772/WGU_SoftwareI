@@ -44,7 +44,7 @@ class AddProductStage {
         Stage subStage = new Stage();
         subStage.setTitle("Add Product");
 
-        Scene scene = new Scene(root, 300, 200);
+        Scene scene = new Scene(root, 1000, 600);
         
         subStage.setScene(scene);
         subStage.show();
@@ -59,7 +59,7 @@ class ModifyProductStage {
         Stage subStage = new Stage();
         subStage.setTitle("Modify Product");
 
-        Scene scene = new Scene(root, 300, 200);
+        Scene scene = new Scene(root, 1000, 600);
         
         subStage.setScene(scene);
         subStage.show();
@@ -73,7 +73,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainScreen.fxml"));
     
-        Scene scene = new Scene(root, 1000, 400);
+        Scene scene = new Scene(root, 1200, 400);
     
         stage.setTitle("");
         stage.setScene(scene);
