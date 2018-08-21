@@ -152,7 +152,9 @@
     </HBox> 
     
     <HBox GridPane.columnIndex="5" GridPane.rowIndex="11" alignment="CENTER_RIGHT">
-        <HBox id="spaced_buttons"><Button text="Save" onAction="#handleModifyProductSave"/></HBox>
+        <HBox id="spaced_buttons">
+            <Button text="Save" onAction="#handleModifyProductSave"/>
+        </HBox>
         <Button text="Cancel" onAction="#handleModifyProductCancel"/>
     </HBox> 
     

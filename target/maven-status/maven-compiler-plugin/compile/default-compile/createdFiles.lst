@@ -1,6 +1,11 @@
 com/mycompany/mavenproject1/ModifyPartStage.class
+com/mycompany/mavenproject1/Part.class
 com/mycompany/mavenproject1/MainApp.class
+com/mycompany/mavenproject1/Outsourced.class
+com/mycompany/mavenproject1/Inventory.class
+com/mycompany/mavenproject1/InHouse.class
 com/mycompany/mavenproject1/AddProductStage.class
 com/mycompany/mavenproject1/ModifyProductStage.class
+com/mycompany/mavenproject1/Product.class
 com/mycompany/mavenproject1/FXMLController.class
 com/mycompany/mavenproject1/AddPartStage.class
