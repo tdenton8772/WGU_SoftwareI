@@ -31,7 +31,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefWidth="300" >
                 <HBox id="spaced_buttons">
-                    <Button text="Search" onAction="#handleAboutAction" />
+                    <Button text="Search" onAction="#handlePartSearch" />
                 </HBox>
                 <TextField  />
             </HBox>
@@ -75,7 +75,7 @@
             </HBox>
             
             <HBox id="spaced_buttons">
-                <Button text="Delete" onAction="#handleAboutAction" />
+                <Button text="Delete" onAction="#handleDeletePart" />
             </HBox>
         </HBox>
     </VBox>   
@@ -87,7 +87,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefWidth="300" >
                 <HBox id="spaced_buttons">
-                    <Button text="Search" onAction="#handleAboutAction" />
+                    <Button text="Search" onAction="#handleProductSearch" />
                 </HBox>
                 <TextField  />
             </HBox>
@@ -130,7 +130,7 @@
             </HBox>
             
             <HBox id="spaced_buttons">
-                <Button text="Delete" onAction="#handleAboutAction" />
+                <Button text="Delete" onAction="#handleDeleteProduct" />
             </HBox>
         </HBox>
         
@@ -140,7 +140,7 @@
         <URL value="@/styles/Styles.css" />
     </stylesheets>
     <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="5">
-        <Button text="Exit" onAction="#handleAboutAction" />
+        <Button text="Exit" onAction="#handleExit" />
     </HBox>  
 </GridPane>
 

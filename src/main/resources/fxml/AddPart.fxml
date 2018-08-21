@@ -76,10 +76,10 @@
 
     <HBox alignment="CENTER_RIGHT" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.columnSpan="4">
         <HBox id="spaced_buttons">
-            <Button text="Save" onAction="#handleAboutAction" />
+            <Button text="Save" onAction="#handleAddPartSave" />
         </HBox>
         <HBox id="spaced_buttons">
-            <Button text="Cancel" onAction="#handleAboutAction" />
+            <Button text="Cancel" onAction="#handleAddPartCancel" />
         </HBox>
     </HBox>  
     <stylesheets>

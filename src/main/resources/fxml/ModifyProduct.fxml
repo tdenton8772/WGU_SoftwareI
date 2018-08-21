@@ -24,7 +24,7 @@
     <HBox prefWidth="600" alignment="CENTER_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnSpan="3"   >
         <HBox prefWidth="400" alignment="CENTER_LEFT">
             <HBox id="spaced_buttons">
-                <Button text="Search" onAction="#handleAboutAction" />
+                <Button text="Search" onAction="#handleModifyProductSearchPart" />
             </HBox>
             <TextField  />
         </HBox>
@@ -112,7 +112,7 @@
     </TableView>  
     
     <HBox GridPane.columnIndex="5" GridPane.rowIndex="5" alignment="CENTER_RIGHT">
-        <Button text="Add" />
+        <Button text="Add" onAction="#handleModifyProductAddPart" />
     </HBox> 
     
     <TableView editable="true" 
@@ -148,8 +148,15 @@
     </TableView>  
     
     <HBox GridPane.columnIndex="5" GridPane.rowIndex="10" alignment="CENTER_RIGHT">
-        <Button text="Add" />
+        <Button text="Delete" onAction="#handleModifyProductDelete"/>
     </HBox> 
+    
+    <HBox GridPane.columnIndex="5" GridPane.rowIndex="11" alignment="CENTER_RIGHT">
+        <HBox id="spaced_buttons"><Button text="Save" onAction="#handleModifyProductSave"/></HBox>
+        <Button text="Cancel" onAction="#handleModifyProductCancel"/>
+    </HBox> 
+    
+    
     
     
     <stylesheets>
