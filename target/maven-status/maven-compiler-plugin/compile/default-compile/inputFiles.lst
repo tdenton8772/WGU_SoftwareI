@@ -1,5 +1,11 @@
+/home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/Outsourced.java
 /home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/Product.java
-/home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/FXMLController.java
+/home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/InHouse.java
+/home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/ControllerAddPart.java
+/home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/ControllerAddProduct.java
 /home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/MainApp.java
 /home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/Part.java
+/home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/ControllerModifyPart.java
+/home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/ControllerModifyProduct.java
 /home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/Inventory.java
+/home/tdenton/NetBeansProjects/wgu_softwarei/src/main/java/com/mycompany/mavenproject1/ControllerMain.java

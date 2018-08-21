@@ -11,7 +11,7 @@ import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
  *
  * @author tdenton
  */
-abstract class Part {
+public abstract class Part {
 
     private int partID;
     private String name = new String();
@@ -70,29 +70,5 @@ abstract class Part {
 
     public int getPartID() {
         return this.partID;
-    }
-}
-
-class InHouse extends Part {
-    private int machineID;
-    
-    public void setMachineID(int machineID){
-        this.machineID = machineID;
-    }
-    
-    public int getMachineID(){
-        return this.machineID;
-    }
-}
-
-class Outsourced extends Part {
-    String companyName = new String();
-    
-    public void setCompanyName(String companyName){
-        this.companyName = companyName;
-    }
-    
-    public String getCompanyName(){
-        return this.companyName;
     }
 }

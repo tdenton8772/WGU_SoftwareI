@@ -9,7 +9,7 @@
 <?import javafx.collections.*?> 
 
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.FXMLController" 
+<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.ControllerModifyProduct" 
           alignment="center" hgap="10" vgap="10"
           styleClass="root" gridLinesVisible="false" >
     <padding>
