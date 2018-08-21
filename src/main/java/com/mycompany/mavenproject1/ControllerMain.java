@@ -118,7 +118,14 @@ public class ControllerMain implements Initializable {
 
     
 
-    
+    @FXML
+    protected void handleModifyProductSearchPart(ActionEvent event) {
+        try {
+            System.out.println("Modify Product Part Search pressed");
+        } catch (Exception ex) {
+            System.out.println("Error: Modify Product Part Seach pressed");
+        }
+    }
 
     
 
