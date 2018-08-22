@@ -70,7 +70,9 @@ public class Product {
     }
     
     public Part lookupAssociatedPart(int index){
-        Part part = new Outsourced();
+//        Not sure what this method is supposed to do?
+        Inventory inventory = Inventory.getInstance();
+        Part part = inventory.lookupPart(index);
         return part;
     }
     

@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  *
@@ -22,6 +23,9 @@ import javafx.scene.text.Text;
  */
 public class ControllerModifyPart implements Initializable {
 
+    @FXML
+    private javafx.scene.control.Button cancelButton;
+    
     @FXML
     protected void handleModifyPartSave(ActionEvent event) {
         try {
@@ -38,6 +42,9 @@ public class ControllerModifyPart implements Initializable {
         } catch (Exception ex) {
             System.out.println("Error: Modify Part Cancel was pushed");
         }
+        
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
     }
     
     @Override

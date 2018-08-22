@@ -79,7 +79,7 @@
             <Button text="Save" onAction="#handleModifyPartSave" />
         </HBox>
         <HBox id="spaced_buttons">
-            <Button text="Cancel" onAction="#handleModifyPartCancel" />
+            <Button fx:id="cancelButton" text="Cancel" onAction="#handleModifyPartCancel" />
         </HBox>
     </HBox>  
     <stylesheets>

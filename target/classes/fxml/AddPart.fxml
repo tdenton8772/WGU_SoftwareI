@@ -18,9 +18,12 @@
               text="Add Part" />
     </HBox>
     
+    <fx:define>
+        <ToggleGroup  fx:id="opt_source" />
+    </fx:define>
     <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="4" >
-        <RadioButton text="In-House"/>
-        <RadioButton text="Outsourced" /> 
+        <RadioButton text="In-House" toggleGroup="$opt_source" fx:id="opt_InHouse"/>
+        <RadioButton text="Outsourced" toggleGroup="$opt_source" fx:id="opt_OutSourced"/> 
     </HBox>
 
 
@@ -29,49 +32,49 @@
         <Text text="ID:" />
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="4">
-        <TextField promptText="Auto Gen - Disabled"  />
+        <TextField fx:id="txt_partID" promptText="Auto Gen - Disabled"  />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="1">
         <Text text="Name:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="4">
-        <TextField promptText="Part Name" />
+        <TextField fx:id="txt_partName" promptText="Part Name" />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="1">
         <Text text="Inv:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="4">
-        <TextField promptText="Inv" />
+        <TextField fx:id="txt_partInv" promptText="Inv" />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="1">
         <Text text="Price/Cost:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="4">
-        <TextField promptText="Price/Cost" />
+        <TextField fx:id="txt_partPrice" promptText="Price/Cost" />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="1">
         <Text text="Max:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.columnSpan="1">
-        <TextField promptText="Max" />
+        <TextField fx:id="txt_partMax" promptText="Max" />
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="3" GridPane.rowIndex="5" GridPane.columnSpan="1">
         <Text text="Min:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="4" GridPane.rowIndex="5" GridPane.columnSpan="1">
-        <TextField promptText="Min" />
+        <TextField fx:id="txt_partMin" promptText="Min" />
     </HBox>
 
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="1">
         <Text text="Company Name:"/>
     </HBox>
     <HBox prefWidth="200" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="4">
-        <TextField promptText="Comp Nm" />
+        <TextField fx:id="txt_partCompName" promptText="Comp Nm" />
     </HBox>
 
     <HBox alignment="CENTER_RIGHT" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.columnSpan="4">
@@ -79,7 +82,7 @@
             <Button text="Save" onAction="#handleAddPartSave" />
         </HBox>
         <HBox id="spaced_buttons">
-            <Button text="Cancel" onAction="#handleAddPartCancel" />
+            <Button fx:id="cancelButton" text="Cancel" onAction="#handleAddPartCancel" />
         </HBox>
     </HBox>  
     <stylesheets>

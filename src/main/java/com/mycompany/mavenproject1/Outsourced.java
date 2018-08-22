@@ -12,6 +12,16 @@ package com.mycompany.mavenproject1;
 public class Outsourced extends Part {
     private String companyName;
     
+    public Outsourced(int partID, String name, Double price, int inStock, int min, int max, String companyName){
+        this.setPartID(partID);
+        this.setName(name);
+        this.setPrice(price);
+        this.setInStock(inStock);
+        this.setMin(min);
+        this.setMax(max);
+        this.setCompanyName(companyName);
+    }
+    
     public void setCompanyName(String companyName){
         this.companyName = companyName;
     }

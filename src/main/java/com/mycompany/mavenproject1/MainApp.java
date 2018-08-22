@@ -71,7 +71,8 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-       Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainScreen.fxml"));
+        Inventory inventory = Inventory.getInstance();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainScreen.fxml"));
     
         Scene scene = new Scene(root, 1200, 400);
     

@@ -51,15 +51,7 @@ public class InHouseTest {
         int min = 1;
         int max = 10;
         
-        InHouse instance = new InHouse();
-        
-        instance.setMachineID(machineID);        
-        instance.setPartID(partID);
-        instance.setName(partName);
-        instance.setPrice(price);
-        instance.setInStock(inStock);
-        instance.setMin(min);
-        instance.setMax(max);
+        InHouse instance = new InHouse(partID, partName, price, inStock, min, max, machineID);
         
         int resultMachineID = instance.getMachineID();
         int resultPartID = instance.getPartID();

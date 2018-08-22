@@ -51,7 +51,7 @@ public class OutsourcedTest {
         int min = 1;
         int max = 10;
         
-        Outsourced instance = new Outsourced();
+        Outsourced instance = new Outsourced(partID, partName, price, inStock, min, max, companyName);
         instance.setCompanyName(companyName);
         instance.setPartID(partID);
         instance.setName(partName);
@@ -76,6 +76,4 @@ public class OutsourcedTest {
         assertEquals(min, resultMin);
         assertEquals(max, resultMax);
     }
-
-    
 }

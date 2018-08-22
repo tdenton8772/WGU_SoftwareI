@@ -5,8 +5,6 @@
  */
 package com.mycompany.mavenproject1;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
-
 /**
  *
  * @author tdenton
@@ -23,14 +21,10 @@ public abstract class Part {
     public void setName(String name) {
         this.name = name;
     }
-
-    ;
     
     public String getName() {
         return this.name;
     }
-
-    ;
     
     public void setPrice(double price) {
         this.price = price;
