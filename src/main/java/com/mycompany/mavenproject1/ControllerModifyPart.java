@@ -12,7 +12,9 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -22,9 +24,36 @@ import javafx.stage.Stage;
  * @author tdenton
  */
 public class ControllerModifyPart implements Initializable {
-
+    @FXML
+    private TextField txt_partCompanyName;
+    @FXML
+    private Text lbl_partCompanyName;
+    @FXML
+    private TextField txt_partMachineID;
+    @FXML
+    private Text lbl_partMachineID;
+    @FXML
+    private ToggleGroup opt_source;
     @FXML
     private javafx.scene.control.Button cancelButton;
+    
+    public void opt_source_action(ActionEvent action){
+        String opt_selected = ((RadioButton) opt_source.getSelectedToggle()).getText();
+        if (opt_selected.equalsIgnoreCase("In-House")) {
+                lbl_partCompanyName.setVisible(false);
+                txt_partCompanyName.setVisible(false);
+                lbl_partMachineID.setVisible(true);
+                txt_partMachineID.setVisible(true);
+            } else if (opt_selected.equalsIgnoreCase("OutSourced")) {
+                lbl_partCompanyName.setVisible(true);
+                txt_partCompanyName.setVisible(true);
+                lbl_partMachineID.setVisible(false);
+                txt_partMachineID.setVisible(false);
+            } else {
+
+            }
+        
+    }
     
     @FXML
     protected void handleModifyPartSave(ActionEvent event) {
