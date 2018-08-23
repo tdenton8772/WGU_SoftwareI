@@ -34,10 +34,9 @@ public class ControllerMain implements Initializable {
     @FXML
     private Button btn_addPart;
     
-
-    @FXML
-    protected void updateTable(ActionEvent event) {
+    protected void updateTable() {
         System.out.println("Refresh Table");
+        tbl_parts.refresh();
     }
     
     @FXML
@@ -91,6 +90,9 @@ public class ControllerMain implements Initializable {
     protected void handleModifyPartStageAction(ActionEvent event) {
         try {
             new ModifyPartStage();
+            Stage stage = (Stage) btn_addPart.getScene().getWindow();
+            stage.close();
+            
         } catch (Exception ex) {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -99,7 +101,11 @@ public class ControllerMain implements Initializable {
     @FXML
     protected void handleDeletePart(ActionEvent event) {
         try {
-            System.out.println("Delete Part was pushed");
+            Inventory inventory = Inventory.getInstance();
+            Part part = (Part) tbl_parts.getSelectionModel().getSelectedItem();
+            boolean deleted = inventory.deletePart(part);
+            System.out.println("Delete Part was pushed: "+ deleted);
+            updateTable();
         } catch (Exception ex) {
             System.out.println("Error: Delete Part was pushed");
         }

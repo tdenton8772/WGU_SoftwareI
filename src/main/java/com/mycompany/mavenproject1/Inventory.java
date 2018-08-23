@@ -63,7 +63,13 @@ public class Inventory {
     }
     
     public boolean deletePart(Part part){
-        return true;
+        try {
+            parts.remove(part);
+            return true;
+        } catch(Exception ex) {
+            System.out.println(ex);
+            return false;
+        }
     }
     
     public void updatePart(int index){
