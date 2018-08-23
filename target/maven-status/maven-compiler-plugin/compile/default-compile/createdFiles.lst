@@ -13,3 +13,4 @@ com/mycompany/mavenproject1/ControllerAddProduct.class
 com/mycompany/mavenproject1/ControllerModifyPart.class
 com/mycompany/mavenproject1/Product.class
 com/mycompany/mavenproject1/AddPartStage.class
+com/mycompany/mavenproject1/GetMainStage.class

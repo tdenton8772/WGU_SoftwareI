@@ -7,6 +7,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+class GetMainStage {
+    GetMainStage() throws Exception
+    {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainScreen.fxml"));
+        Stage subStage = new Stage();
+        subStage.setTitle("");
+
+        Scene scene = new Scene(root, 1200, 400);
+        
+        subStage.setScene(scene);
+        subStage.show();
+        
+    }
+}
+
 class AddPartStage {
     AddPartStage() throws Exception
     {
@@ -72,6 +87,10 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Inventory inventory = Inventory.getInstance();
+        
+        InHouse part = new InHouse(1, "Test", 1d, 1,1,1,1);
+        inventory.addPart(part);
+        
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainScreen.fxml"));
     
         Scene scene = new Scene(root, 1200, 400);

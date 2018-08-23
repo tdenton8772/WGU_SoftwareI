@@ -11,7 +11,8 @@
 
 <GridPane fx:controller="com.mycompany.mavenproject1.ControllerMain" 
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
-          styleClass="root" gridLinesVisible="false" >
+          styleClass="root" gridLinesVisible="false"
+            fx:id="root">
     <padding>
         <Insets top="5" right="10" bottom="10" left="10"/>
     </padding>
@@ -37,7 +38,7 @@
             </HBox>
         </HBox>
         
-        <TableView editable="true" >
+        <TableView fx:id="tbl_parts" editable="true" >
             <columns>
                 <TableColumn fx:id="part_ID" text="Part ID" prefWidth="75" >
                     <cellValueFactory>
@@ -46,17 +47,17 @@
                 </TableColumn>
                 <TableColumn fx:id="part_Name" text="Part Name" prefWidth="100">
                     <cellValueFactory>
-                        <PropertyValueFactory property="partName" />
+                        <PropertyValueFactory property="name" />
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn fx:id="part_Inv" text="Inventory Level" prefWidth="150">
                     <cellValueFactory>
-                        <PropertyValueFactory property="partInv" />
+                        <PropertyValueFactory property="inStock" />
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn fx:id="part_Price" text="Price/Cost per Unit" prefWidth="175">
                     <cellValueFactory>
-                        <PropertyValueFactory property="partCost" />
+                        <PropertyValueFactory property="price" />
                     </cellValueFactory>
                 </TableColumn>
             </columns> 
@@ -67,7 +68,7 @@
              
         <HBox alignment="CENTER_RIGHT" >
             <HBox id="spaced_buttons">
-                <Button text="Add" onAction="#handleAddPartStageAction" />
+                <Button text="Add" fx:id="btn_addPart" onAction="#handleAddPartStageAction" />
             </HBox>
             
             <HBox id="spaced_buttons">
@@ -92,7 +93,7 @@
                 <TextField  />
             </HBox>
         </HBox>
-        <TableView editable="true" >
+        <TableView editable="true" fx:id="tbl_products">
             <columns>
                 <TableColumn fx:id="product_ID" text="Product ID" prefWidth="95" >
                     <cellValueFactory>

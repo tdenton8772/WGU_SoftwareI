@@ -72,7 +72,6 @@ public class ControllerAddPart implements Initializable {
     @FXML
         protected void handleAddPartSave(ActionEvent event) {
         try {
-            int part_ID = Integer.parseInt(txt_partID.getText());
             String part_Name = txt_partName.getText();
             int part_Inv = Integer.parseInt(txt_partInv.getText());
             Double part_Price = Double.parseDouble(txt_partPrice.getText());
@@ -80,25 +79,27 @@ public class ControllerAddPart implements Initializable {
             int part_Max = Integer.parseInt(txt_partMax.getText());
             String part_CompName = txt_partCompanyName.getText();
 
+            Inventory inventory = Inventory.getInstance();
+            int part_ID = inventory.getNextPartID();
+            
 //            Need to add MachineID, this is missing the whole way through
             int part_MachineID = 1;
 
             String opt_selected = ((RadioButton) opt_source.getSelectedToggle()).getText();
 
             if (opt_selected.equalsIgnoreCase("In-House")) {
-                Inventory inventory = Inventory.getInstance();
                 InHouse part = new InHouse(part_ID, part_Name, part_Price, part_Inv, part_Min, part_Max, part_MachineID);
                 inventory.addPart(part);
 
             } else if (opt_selected.equalsIgnoreCase("OutSourced")) {
-                Inventory inventory = Inventory.getInstance();
                 Outsourced part = new Outsourced(part_ID, part_Name, part_Price, part_Inv, part_Min, part_Max, part_CompName);
                 inventory.addPart(part);
             } else {
 
             }
-
-//            System.out.println("Add Part: Save was pushed: " + part_ID);
+            Stage stage = (Stage) cancelButton.getScene().getWindow();
+            stage.close();
+            new GetMainStage();
         } catch (Exception ex) {
             System.out.println("Error: Add Part Save was pushed: " + ex.getLocalizedMessage());
         }

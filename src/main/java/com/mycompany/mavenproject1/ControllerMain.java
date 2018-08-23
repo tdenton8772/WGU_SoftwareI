@@ -4,19 +4,41 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class ControllerMain implements Initializable {
 //    test page
-    @FXML private Text actiontarget;
-    @FXML private TextField userName;
+    @FXML
+    private GridPane root;
     
+    @FXML
+    private TableView tbl_parts;
     
+    @FXML TableView tbl_products;
+    
+    @FXML
+    private Text actiontarget;
+    @FXML
+    private TextField userName;
+    @FXML
+    private Button btn_addPart;
+    
+
+    @FXML
+    protected void updateTable(ActionEvent event) {
+        System.out.println("Refresh Table");
+    }
     
     @FXML
     protected void handleKeyInput(ActionEvent event) {
@@ -32,7 +54,9 @@ public class ControllerMain implements Initializable {
     protected void handleSubmitButtonAction(ActionEvent event) {
         actiontarget.setText(userName.getText());
     }
-
+    
+    
+    
     @FXML
     protected void handleExit(ActionEvent event) {
         try {
@@ -55,6 +79,9 @@ public class ControllerMain implements Initializable {
     protected void handleAddPartStageAction(ActionEvent event) {
         try {
             new AddPartStage();
+            Stage stage = (Stage) btn_addPart.getScene().getWindow();
+            stage.close();
+            
         } catch (Exception ex) {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -114,10 +141,6 @@ public class ControllerMain implements Initializable {
         }
     }
 
-    
-
-    
-
     @FXML
     protected void handleModifyProductSearchPart(ActionEvent event) {
         try {
@@ -127,10 +150,12 @@ public class ControllerMain implements Initializable {
         }
     }
 
-    
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        Inventory inventory = Inventory.getInstance();
+        
+        tbl_parts.setItems(FXCollections.observableList(inventory.getPartList()));
+        
+        
     }
 }

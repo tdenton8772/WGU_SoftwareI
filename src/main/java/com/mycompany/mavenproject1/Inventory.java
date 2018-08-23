@@ -7,6 +7,7 @@ package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -21,6 +22,15 @@ public class Inventory {
 //    Default constructor, no values as this starts off empty
     private Inventory(){
         
+    }
+    public List getPartList(){
+        return this.parts;
+    }
+    
+    public int getNextPartID(){
+        int length;
+        length = this.parts.size() + 1;
+        return length;
     }
     
     public void addProduct(Product product){

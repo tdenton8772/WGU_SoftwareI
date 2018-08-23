@@ -21,14 +21,10 @@
     <fx:define>
         <ToggleGroup  fx:id="opt_source"/>
     </fx:define>
-    <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="4" >
-        <RadioButton text="In-House" toggleGroup="$opt_source" selected="true" fx:id="opt_InHouse" onAction="#opt_source_action" />
-        <RadioButton text="Outsourced" toggleGroup="$opt_source"  fx:id="opt_OutSourced" onAction="#opt_source_action" /> 
-    </HBox>
     
     <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="4" >
-        <RadioButton text="In-House"/>
-        <RadioButton text="Outsourced" /> 
+        <RadioButton text="In-House" toggleGroup="$opt_source" fx:id="opt_InHouse" onAction="#opt_source_action"  selected="true"/>
+        <RadioButton text="Outsourced" toggleGroup="$opt_source"  fx:id="opt_OutSourced" onAction="#opt_source_action" /> 
     </HBox>
     
     <HBox prefWidth="115" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="1">
