@@ -7,6 +7,7 @@ import com.mycompany.mavenproject1.ModifyPartStage;
 import com.mycompany.mavenproject1.ModifyProductStage;
 import com.mycompany.mavenproject1.Part;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +17,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -102,9 +106,20 @@ public class ControllerMain implements Initializable {
         try {
             Inventory inventory = Inventory.getInstance();
             Part part = (Part) tbl_parts.getSelectionModel().getSelectedItem();
-            boolean deleted = inventory.deletePart(part);
-            System.out.println("Delete Part was pushed: " + deleted);
-            updateTable();
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("You are deleting part: " + part.getName());
+            alert.setContentText("Are you sure you want to do this?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                boolean deleted = inventory.deletePart(part);
+                System.out.println("Delete Part was pushed: " + deleted);
+                updateTable();
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
+
         } catch (Exception ex) {
             System.out.println("Error: Delete Part was pushed");
         }

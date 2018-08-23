@@ -83,21 +83,22 @@ public class ControllerModifyPart implements Initializable {
     }
 
     public class ValidateReturn {
+
         boolean validated = true;
         String messageCode = "";
     }
 
-    private ValidateReturn ValidatePart(String name, String inv, String price, String min, String max, Class classs, String machComp) {
+    private ValidateReturn ValidatePart(String name, String inv, String price, String min, String max, String partType, String machComp) {
         ValidateReturn object = new ValidateReturn();
         if (name.equals("")) {
             object.validated = false;
             object.messageCode = "You must include a Name";
             return object;
         }
-        
+
         try {
             Integer.parseInt(inv);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             object.validated = false;
             object.messageCode = "Current inventory must be an integer";
             return object;
@@ -105,62 +106,77 @@ public class ControllerModifyPart implements Initializable {
 
         try {
             Integer.parseInt(min);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             object.validated = false;
             object.messageCode = "Minimum inventory must be an integer";
             return object;
         }
-        
+
         try {
             Integer.parseInt(max);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             object.validated = false;
             object.messageCode = "Maximum inventory must be an integer";
             return object;
         }
-        
+
         try {
             Double.parseDouble(price);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             object.validated = false;
             object.messageCode = "Price must be a double";
             return object;
         }
-        
-        if (Integer.parseInt(min) > Integer.parseInt(max)){
+
+        if (Integer.parseInt(min) > Integer.parseInt(max)) {
             object.validated = false;
             object.messageCode = "Minimum integer values must be less than or equal to maximum integer values";
             return object;
         }
-        
-        if(Integer.parseInt(inv) < Integer.parseInt(min) || Integer.parseInt(inv) > Integer.parseInt(max)){
+
+        if (Integer.parseInt(inv) < Integer.parseInt(min) || Integer.parseInt(inv) > Integer.parseInt(max)) {
             object.validated = false;
             object.messageCode = "Inventory must be between or equal to min and max inventory values";
             return object;
         }
-        
-        if(classs.equals(InHouse.class)){
-            try{
+
+        System.out.println("PartType: " + partType + "MachComp: " + machComp);
+
+        if (partType.equalsIgnoreCase("In-House")) {
+            try {
                 Integer.parseInt(machComp);
-            } catch (Exception ex){
+            } catch (Exception ex) {
                 object.validated = false;
                 object.messageCode = "Must have a valid Machine ID";
                 return object;
             }
-        }else if(classs.equals(Outsourced.class)){
-            if(machComp.equals("")){
+        } else if (partType.equalsIgnoreCase("Outsourced")) {
+            try {
+                if (machComp.equals("")) {
+                    object.validated = false;
+                    object.messageCode = "You must have a valid company name";
+                    return object;
+                }
+            } catch (Exception ex) {
                 object.validated = false;
                 object.messageCode = "You must have a valid company name";
                 return object;
             }
+        } else {
+            System.out.println(partType);
+            object.validated = false;
+            object.messageCode = "Dont recognize part type: " + partType;
         }
-        
+
         return object;
     }
 
     @FXML
-    protected void handleModifyPartSave(ActionEvent event) {
-        ValidateReturn returnObject = ValidatePart(txt_partName.getText(), txt_partInv.getText(), txt_partPrice.getText(), txt_partMin.getText(), txt_partMax.getText(), part.getClass(), txt_partMachComp.getText());
+    protected void handleModifyPartSave(ActionEvent event
+    ) {
+        String opt_selected = ((RadioButton) opt_source.getSelectedToggle()).getText();
+
+        ValidateReturn returnObject = ValidatePart(txt_partName.getText(), txt_partInv.getText(), txt_partPrice.getText(), txt_partMin.getText(), txt_partMax.getText(), opt_selected, txt_partMachComp.getText());
 
         if (returnObject.validated == false) {
             System.out.println(returnObject.messageCode);
@@ -169,7 +185,7 @@ public class ControllerModifyPart implements Initializable {
             alert.setHeaderText("Data Validation Error");
             alert.setContentText(returnObject.messageCode);
             alert.showAndWait();
-            
+
         } else {
             try {
 
@@ -181,8 +197,6 @@ public class ControllerModifyPart implements Initializable {
 
                 Inventory inventory = Inventory.getInstance();
                 int part_ID = Integer.parseInt(txt_partID.getText());
-
-                String opt_selected = ((RadioButton) opt_source.getSelectedToggle()).getText();
 
                 if (opt_selected.equalsIgnoreCase("In-House")) {
                     int part_MachineID = Integer.parseInt(txt_partMachComp.getText());
@@ -208,7 +222,8 @@ public class ControllerModifyPart implements Initializable {
     }
 
     @FXML
-    protected void handleModifyPartCancel(ActionEvent event) {
+    protected void handleModifyPartCancel(ActionEvent event
+    ) {
         try {
             System.out.println("Modify Part: Cancel was pushed");
             Stage stage = (Stage) cancelButton.getScene().getWindow();
@@ -221,7 +236,8 @@ public class ControllerModifyPart implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb
+    ) {
         root.sceneProperty().addListener((observable, oldValue, newValue) -> {
             if (this.part.getClass().equals(InHouse.class)) {
                 System.out.println("InHouse");
