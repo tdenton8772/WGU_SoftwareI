@@ -23,33 +23,21 @@ public class Inventory {
     private Inventory(){
         
     }
+    
     public List getPartList(){
         return this.parts;
     }
     
     public int getNextPartID(){
         int length;
-        length = this.parts.size() + 1;
-        return length;
-    }
-    
-    public void addProduct(Product product){
-        this.products.add(product);
-        System.out.println(this.products);
-    }
-    
-    public void removeProduct(int index){
-     this.products.remove(index);
-     System.out.println(this.products);
-    }
-    
-    public Product lookupProduct(int index){
-        Product product = this.products.get(index);
-        return product;
-    }
-    
-    public void updateProduct(int index){
-//        I have no idea how this is supposed to work with only int for its value
+        if(this.parts.size() > 0){
+        length = this.parts.size() - 1;
+        System.out.println("Current Length: " + length);
+        int lastID = this.parts.get(length).getPartID() + 1;
+        return lastID;
+        } else {
+            return 1;
+        }
     }
     
     public void addPart(Part part){
@@ -74,6 +62,38 @@ public class Inventory {
     
     public void updatePart(int index){
 //        I have no idea what this is supposed to do with only index as its value
+    }
+    
+    
+    public int getNextProductID(){
+        int length;
+        if(this.products.size() > 0){
+        length = this.products.size() - 1;
+        System.out.println("Current Length: " + length);
+        int lastID = this.parts.get(length).getPartID() + 1;
+        return lastID;
+        } else {
+            return 1;
+        }
+    }
+        
+    public void addProduct(Product product){
+        this.products.add(product);
+        System.out.println(this.products);
+    }
+    
+    public void removeProduct(int index){
+     this.products.remove(index);
+     System.out.println(this.products);
+    }
+    
+    public Product lookupProduct(int index){
+        Product product = this.products.get(index);
+        return product;
+    }
+    
+    public void updateProduct(int index){
+//        I have no idea how this is supposed to work with only int for its value
     }
     
 //    turns inventory into a singleton

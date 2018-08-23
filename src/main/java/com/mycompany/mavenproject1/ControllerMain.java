@@ -1,9 +1,16 @@
 package com.mycompany.mavenproject1;
 
+import com.mycompany.mavenproject1.AddPartStage;
+import com.mycompany.mavenproject1.AddProductStage;
+import com.mycompany.mavenproject1.Inventory;
+import com.mycompany.mavenproject1.ModifyPartStage;
+import com.mycompany.mavenproject1.ModifyProductStage;
+import com.mycompany.mavenproject1.Part;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,28 +45,13 @@ public class ControllerMain implements Initializable {
         System.out.println("Refresh Table");
         tbl_parts.refresh();
     }
-    
-    @FXML
-    protected void handleKeyInput(ActionEvent event) {
-        System.out.println("Pressed");
-    }
 
-    @FXML
-    protected void handleAboutAction(ActionEvent event) {
-        System.out.println("About");
-    }
-
-    @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) {
-        actiontarget.setText(userName.getText());
-    }
-    
-    
-    
     @FXML
     protected void handleExit(ActionEvent event) {
         try {
             System.out.println("Exit pushed");
+            Platform.exit();
+            
         } catch (Exception ex) {
             System.out.println("Error: Exit pressed");
         }
@@ -85,11 +77,12 @@ public class ControllerMain implements Initializable {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+            
     @FXML
     protected void handleModifyPartStageAction(ActionEvent event) {
         try {
-            new ModifyPartStage();
+            Part part = (Part) tbl_parts.getSelectionModel().getSelectedItem();
+            new ModifyPartStage(part);
             Stage stage = (Stage) btn_addPart.getScene().getWindow();
             stage.close();
             
