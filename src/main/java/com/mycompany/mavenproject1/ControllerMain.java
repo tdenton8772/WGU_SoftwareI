@@ -117,7 +117,7 @@ public class ControllerMain implements Initializable {
                 System.out.println("Delete Part was pushed: " + deleted);
                 updateTable();
             } else {
-                // ... user chose CANCEL or closed the dialog
+                System.out.println("User decided to not delete part: "+part.getName());
             }
 
         } catch (Exception ex) {

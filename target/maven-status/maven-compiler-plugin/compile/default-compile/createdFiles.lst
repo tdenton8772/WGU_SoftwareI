@@ -2,12 +2,16 @@ com/mycompany/mavenproject1/ControllerAddPart.class
 com/mycompany/mavenproject1/Part.class
 com/mycompany/mavenproject1/MainApp.class
 com/mycompany/mavenproject1/Inventory.class
+com/mycompany/mavenproject1/AddPartStage$1.class
 com/mycompany/mavenproject1/ControllerAddPart$ValidateReturn.class
 com/mycompany/mavenproject1/ControllerMain.class
+com/mycompany/mavenproject1/AddProductStage$1.class
 com/mycompany/mavenproject1/Product.class
 com/mycompany/mavenproject1/ModifyPartStage.class
+com/mycompany/mavenproject1/ModifyProductStage$1.class
 com/mycompany/mavenproject1/Outsourced.class
 com/mycompany/mavenproject1/InHouse.class
+com/mycompany/mavenproject1/ModifyPartStage$1.class
 com/mycompany/mavenproject1/AddProductStage.class
 com/mycompany/mavenproject1/ControllerModifyProduct.class
 com/mycompany/mavenproject1/ModifyProductStage.class

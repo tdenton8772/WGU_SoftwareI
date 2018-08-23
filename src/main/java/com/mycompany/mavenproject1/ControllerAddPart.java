@@ -6,6 +6,7 @@
 package com.mycompany.mavenproject1;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -187,7 +189,6 @@ public class ControllerAddPart implements Initializable {
                 int part_MachineID = Integer.parseInt(txt_partMachComp.getText());
 
 //                String opt_selected = ((RadioButton) opt_source.getSelectedToggle()).getText();
-
                 if (opt_selected.equalsIgnoreCase("In-House")) {
                     InHouse part = new InHouse(part_ID, part_Name, part_Price, part_Inv, part_Min, part_Max, part_MachineID);
                     inventory.addPart(part);
@@ -209,10 +210,20 @@ public class ControllerAddPart implements Initializable {
     @FXML
     protected void handleAddPartCancel(ActionEvent event) {
         try {
-            System.out.println("Add Part: Cancel was pushed");
-            new GetMainStage();
-            Stage stage = (Stage) cancelButton.getScene().getWindow();
-            stage.close();
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setContentText("Are you sure you want to cancel?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                System.out.println("Add Part: Cancel was pushed");
+                new GetMainStage();
+                Stage stage = (Stage) cancelButton.getScene().getWindow();
+                stage.close();
+            } else {
+                System.out.println("User decided to not Cancel");
+            }
+
         } catch (Exception ex) {
             System.out.println("Error: Add Part Cancel was pushed");
         }

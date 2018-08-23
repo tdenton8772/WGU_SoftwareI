@@ -6,6 +6,7 @@
 package com.mycompany.mavenproject1;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -225,10 +227,20 @@ public class ControllerModifyPart implements Initializable {
     protected void handleModifyPartCancel(ActionEvent event
     ) {
         try {
-            System.out.println("Modify Part: Cancel was pushed");
-            Stage stage = (Stage) cancelButton.getScene().getWindow();
-            stage.close();
-            new GetMainStage();
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setContentText("Are you sure you want to cancel?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                System.out.println("Modify Part: Cancel was pushed");
+                Stage stage = (Stage) cancelButton.getScene().getWindow();
+                stage.close();
+                new GetMainStage();
+            } else {
+                System.out.println("User decided to not Cancel");
+            }
+            
         } catch (Exception ex) {
             System.out.println("Error: Modify Part Cancel was pushed");
         }
