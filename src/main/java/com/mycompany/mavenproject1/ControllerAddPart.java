@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -180,19 +179,17 @@ public class ControllerAddPart implements Initializable {
                 Double part_Price = Double.parseDouble(txt_partPrice.getText());
                 int part_Min = Integer.parseInt(txt_partMin.getText());
                 int part_Max = Integer.parseInt(txt_partMax.getText());
-                String part_CompName = txt_partMachComp.getText();
+                
 
                 Inventory inventory = Inventory.getInstance();
                 int part_ID = inventory.getNextPartID();
 
-//            Need to add MachineID, this is missing the whole way through
-                int part_MachineID = Integer.parseInt(txt_partMachComp.getText());
-
-//                String opt_selected = ((RadioButton) opt_source.getSelectedToggle()).getText();
                 if (opt_selected.equalsIgnoreCase("In-House")) {
+                    int part_MachineID = Integer.parseInt(txt_partMachComp.getText());
                     InHouse part = new InHouse(part_ID, part_Name, part_Price, part_Inv, part_Min, part_Max, part_MachineID);
                     inventory.addPart(part);
                 } else if (opt_selected.equalsIgnoreCase("OutSourced")) {
+                    String part_CompName = txt_partMachComp.getText();
                     Outsourced part = new Outsourced(part_ID, part_Name, part_Price, part_Inv, part_Min, part_Max, part_CompName);
                     inventory.addPart(part);
                 } else {

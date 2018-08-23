@@ -21,6 +21,17 @@ public class Product {
     private int min;
     private int max;
     
+    public Product(int productID, String name, Double price, int inStock, int min, int max, List<Part> parts){
+        this.setProductID(productID);
+        this.setName(name);
+        this.setPrice(price);
+        this.setInStock(inStock);
+        this.setMin(min);
+        this.setMax(max);
+        for(Part part: parts){
+            System.out.println(part.getName());
+        }
+    }
     public void setName(String name){
         this.name = name;
     }

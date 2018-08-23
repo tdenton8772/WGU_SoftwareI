@@ -102,17 +102,17 @@
                 </TableColumn>
                 <TableColumn fx:id="product_Name" text="Product Name" prefWidth="115">
                     <cellValueFactory>
-                        <PropertyValueFactory property="productName" />
+                        <PropertyValueFactory property="name" />
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn fx:id="product_Inv" text="Inventory Level" prefWidth="150">
                     <cellValueFactory>
-                        <PropertyValueFactory property="productInv" />
+                        <PropertyValueFactory property="inStock" />
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn fx:id="product_Price" text="Price/Cost per Unit" prefWidth="175">
                     <cellValueFactory>
-                        <PropertyValueFactory property="productCost" />
+                        <PropertyValueFactory property="price" />
                     </cellValueFactory>
                 </TableColumn>
             </columns> 

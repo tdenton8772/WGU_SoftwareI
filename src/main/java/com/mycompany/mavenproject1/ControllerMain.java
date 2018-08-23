@@ -29,7 +29,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ControllerMain implements Initializable {
-//    test page
 
     @FXML
     private GridPane root;
@@ -41,15 +40,12 @@ public class ControllerMain implements Initializable {
     TableView tbl_products;
 
     @FXML
-    private Text actiontarget;
-    @FXML
-    private TextField userName;
-    @FXML
     private Button btn_addPart;
 
     protected void updateTable() {
         System.out.println("Refresh Table");
         tbl_parts.refresh();
+        tbl_products.refresh();
     }
 
     @FXML
@@ -137,6 +133,8 @@ public class ControllerMain implements Initializable {
     @FXML
     protected void handleAddProductStageAction(ActionEvent event) {
         try {
+            Stage stage = (Stage) btn_addPart.getScene().getWindow();
+            stage.close();
             new AddProductStage();
         } catch (Exception ex) {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
@@ -146,6 +144,8 @@ public class ControllerMain implements Initializable {
     @FXML
     protected void handleModifyProductStageAction(ActionEvent event) {
         try {
+            Stage stage = (Stage) btn_addPart.getScene().getWindow();
+            stage.close();
             new ModifyProductStage();
         } catch (Exception ex) {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
@@ -175,6 +175,7 @@ public class ControllerMain implements Initializable {
         Inventory inventory = Inventory.getInstance();
 
         tbl_parts.setItems(FXCollections.observableList(inventory.getPartList()));
+        tbl_products.setItems(FXCollections.observableList(inventory.getProductList()));
 
     }
 }
