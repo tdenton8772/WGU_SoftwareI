@@ -18,7 +18,6 @@
         <Text id="welcome-text" 
               text="Modify Part" />
     </HBox>
-    
     <fx:define>
         <ToggleGroup  fx:id="opt_source"/>
     </fx:define>

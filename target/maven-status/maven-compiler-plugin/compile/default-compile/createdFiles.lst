@@ -9,6 +9,7 @@ com/mycompany/mavenproject1/AddProductStage.class
 com/mycompany/mavenproject1/ControllerMain.class
 com/mycompany/mavenproject1/ControllerModifyProduct.class
 com/mycompany/mavenproject1/ModifyProductStage.class
+com/mycompany/mavenproject1/ControllerModifyPart$ValidateReturn.class
 com/mycompany/mavenproject1/ControllerAddProduct.class
 com/mycompany/mavenproject1/ControllerModifyPart.class
 com/mycompany/mavenproject1/Product.class
