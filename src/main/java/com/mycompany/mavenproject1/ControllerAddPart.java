@@ -40,13 +40,11 @@ public class ControllerAddPart implements Initializable {
     @FXML
     private TextField txt_partMax;
     @FXML
-    private TextField txt_partCompanyName;
-    @FXML
     private Text lbl_partCompanyName;
     @FXML
-    private TextField txt_partMachineID;
-    @FXML
     private Text lbl_partMachineID;
+    @FXML
+    private TextField txt_partMachComp;
     @FXML
     private ToggleGroup opt_source;
     @FXML
@@ -55,15 +53,13 @@ public class ControllerAddPart implements Initializable {
     public void opt_source_action(ActionEvent action) {
         String opt_selected = ((RadioButton) opt_source.getSelectedToggle()).getText();
         if (opt_selected.equalsIgnoreCase("In-House")) {
+            txt_partMachComp.setPromptText("Mach ID");
             lbl_partCompanyName.setVisible(false);
-            txt_partCompanyName.setVisible(false);
             lbl_partMachineID.setVisible(true);
-            txt_partMachineID.setVisible(true);
         } else if (opt_selected.equalsIgnoreCase("OutSourced")) {
+            txt_partMachComp.setPromptText("Comp Nm");
             lbl_partCompanyName.setVisible(true);
-            txt_partCompanyName.setVisible(true);
             lbl_partMachineID.setVisible(false);
-            txt_partMachineID.setVisible(false);
         } else {
 
         }
@@ -78,13 +74,13 @@ public class ControllerAddPart implements Initializable {
             Double part_Price = Double.parseDouble(txt_partPrice.getText());
             int part_Min = Integer.parseInt(txt_partMin.getText());
             int part_Max = Integer.parseInt(txt_partMax.getText());
-            String part_CompName = txt_partCompanyName.getText();
+            String part_CompName = txt_partMachComp.getText();
 
             Inventory inventory = Inventory.getInstance();
             int part_ID = inventory.getNextPartID();
 
 //            Need to add MachineID, this is missing the whole way through
-            int part_MachineID = 1;
+            int part_MachineID = Integer.parseInt(txt_partMachComp.getText());
 
             String opt_selected = ((RadioButton) opt_source.getSelectedToggle()).getText();
 

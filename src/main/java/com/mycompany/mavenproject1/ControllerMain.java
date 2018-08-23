@@ -26,21 +26,23 @@ import javafx.stage.Stage;
 
 public class ControllerMain implements Initializable {
 //    test page
+
     @FXML
     private GridPane root;
-    
+
     @FXML
     private TableView tbl_parts;
-    
-    @FXML TableView tbl_products;
-    
+
+    @FXML
+    TableView tbl_products;
+
     @FXML
     private Text actiontarget;
     @FXML
     private TextField userName;
     @FXML
     private Button btn_addPart;
-    
+
     protected void updateTable() {
         System.out.println("Refresh Table");
         tbl_parts.refresh();
@@ -51,7 +53,7 @@ public class ControllerMain implements Initializable {
         try {
             System.out.println("Exit pushed");
             Platform.exit();
-            
+
         } catch (Exception ex) {
             System.out.println("Error: Exit pressed");
         }
@@ -72,20 +74,24 @@ public class ControllerMain implements Initializable {
             new AddPartStage();
             Stage stage = (Stage) btn_addPart.getScene().getWindow();
             stage.close();
-            
+
         } catch (Exception ex) {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-            
+
     @FXML
     protected void handleModifyPartStageAction(ActionEvent event) {
         try {
-            Part part = (Part) tbl_parts.getSelectionModel().getSelectedItem();
-            new ModifyPartStage(part);
-            Stage stage = (Stage) btn_addPart.getScene().getWindow();
-            stage.close();
-            
+            if (tbl_parts.getSelectionModel().getSelectedItem() != null) {
+                Part part = (Part) tbl_parts.getSelectionModel().getSelectedItem();
+                new ModifyPartStage(part);
+                Stage stage = (Stage) btn_addPart.getScene().getWindow();
+                stage.close();
+            } else {
+                System.out.println("Nothing Selected");
+            }
+
         } catch (Exception ex) {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -97,7 +103,7 @@ public class ControllerMain implements Initializable {
             Inventory inventory = Inventory.getInstance();
             Part part = (Part) tbl_parts.getSelectionModel().getSelectedItem();
             boolean deleted = inventory.deletePart(part);
-            System.out.println("Delete Part was pushed: "+ deleted);
+            System.out.println("Delete Part was pushed: " + deleted);
             updateTable();
         } catch (Exception ex) {
             System.out.println("Error: Delete Part was pushed");
@@ -152,9 +158,8 @@ public class ControllerMain implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Inventory inventory = Inventory.getInstance();
-        
+
         tbl_parts.setItems(FXCollections.observableList(inventory.getPartList()));
-        
-        
+
     }
 }

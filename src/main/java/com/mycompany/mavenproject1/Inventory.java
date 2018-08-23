@@ -60,8 +60,8 @@ public class Inventory {
         }
     }
     
-    public void updatePart(int index){
-//        I have no idea what this is supposed to do with only index as its value
+    public void updatePart(Part part){
+        parts.set(part.getPartID()-1, part);
     }
     
     

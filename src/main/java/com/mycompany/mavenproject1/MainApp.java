@@ -111,14 +111,10 @@ class ModifyProductStage {
         Stage subStage = new Stage();
         subStage.setTitle("Modify Product");
         
-        
-        
         Scene scene = new Scene(root, 1000, 600);
 
         subStage.setScene(scene);
         subStage.show();
-        
-        
     }
 }
 
