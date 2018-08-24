@@ -96,8 +96,8 @@ public class Inventory {
         return product;
     }
 
-    public void updateProduct(int index) {
-//        I have no idea how this is supposed to work with only int for its value
+    public void updateProduct(Product product) {
+        this.products.set(product.getProductID() - 1, product);
     }
 
 //    turns inventory into a singleton

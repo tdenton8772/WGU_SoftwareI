@@ -189,11 +189,11 @@ public class ControllerModifyProduct implements Initializable {
                 int prod_Min = Integer.parseInt(txt_prodMin.getText());
                 int prod_Max = Integer.parseInt(txt_prodMax.getText());
                 ArrayList<Part> partList = (ArrayList) this.tempPartList;
-
+                int prod_ID = Integer.parseInt(txt_prodID.getText());
                 Inventory inventory = Inventory.getInstance();
-                int prod_ID = inventory.getNextProductID();
+//                int prod_ID = inventory.getNextProductID();
                 Product product = new Product(prod_ID, prod_Name, prod_Price, prod_Inv, prod_Min, prod_Max, partList);
-                inventory.addProduct(product);
+                inventory.updateProduct(product);
 
                 System.out.println("Add Product Save Part pressed");
                 Stage stage = (Stage) cancelButton.getScene().getWindow();

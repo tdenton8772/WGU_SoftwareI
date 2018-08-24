@@ -37,7 +37,7 @@
                 <Text text="ID:" />
             </HBox>
             <HBox prefWidth="200" alignment="CENTER_LEFT">
-                <TextField fx:id="txt_prodID" promptText="Auto Gen - Disabled"  />
+                <TextField fx:id="txt_prodID" promptText="Auto Gen - Disabled" disable="true"  />
             </HBox>
         </HBox>
         <HBox id="spaced_buttons">
