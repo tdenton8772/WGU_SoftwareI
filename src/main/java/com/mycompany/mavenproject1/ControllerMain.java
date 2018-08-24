@@ -146,7 +146,8 @@ public class ControllerMain implements Initializable {
         try {
             Stage stage = (Stage) btn_addPart.getScene().getWindow();
             stage.close();
-            new ModifyProductStage();
+            Product product = (Product) tbl_products.getSelectionModel().getSelectedItem();
+            new ModifyProductStage(product);
         } catch (Exception ex) {
             Logger.getLogger(ControllerMain.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -29,7 +29,7 @@ public class Product {
         this.setMin(min);
         this.setMax(max);
         for(Part part: parts){
-            System.out.println(part.getName());
+            addAssociatedPart(part);
         }
     }
     public void setName(String name){
@@ -73,7 +73,7 @@ public class Product {
     }
     
     public void addAssociatedPart(Part part){
-        
+        this.associatedParts.add(part);
     }
     
     public boolean removeAssociatedPart(int index){
@@ -85,6 +85,10 @@ public class Product {
         Inventory inventory = Inventory.getInstance();
         Part part = inventory.lookupPart(index);
         return part;
+    }
+
+    public List<Part> getAssociatedPartList(){
+        return this.associatedParts;
     }
     
     public void setProductID(int productID){

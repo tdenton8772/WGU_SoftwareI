@@ -106,10 +106,13 @@ class AddProductStage {
 
 class ModifyProductStage {
 
-    ModifyProductStage() throws Exception {
+    ModifyProductStage(Product product) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ModifyProduct.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         ControllerModifyProduct controller = fxmlLoader.getController();
+        System.out.println("Got Here");
+        controller.storeProduct(product);
+        
         Stage subStage = new Stage();
         subStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 

@@ -240,7 +240,7 @@ public class ControllerModifyPart implements Initializable {
             } else {
                 System.out.println("User decided to not Cancel");
             }
-            
+
         } catch (Exception ex) {
             System.out.println("Error: Modify Part Cancel was pushed");
         }

@@ -11,7 +11,8 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.ControllerModifyProduct" 
           alignment="center" hgap="10" vgap="10"
-          styleClass="root" gridLinesVisible="false" >
+          styleClass="root" gridLinesVisible="false"
+            fx:id="root">
     <padding>
         <Insets top="25" right="25" bottom="10" left="25"/>
     </padding>
@@ -36,16 +37,15 @@
                 <Text text="ID:" />
             </HBox>
             <HBox prefWidth="200" alignment="CENTER_LEFT">
-                <TextField promptText="Auto Gen - Disabled"  />
+                <TextField fx:id="txt_prodID" promptText="Auto Gen - Disabled"  />
             </HBox>
         </HBox>
-        
         <HBox id="spaced_buttons">
             <HBox prefWidth="115" alignment="CENTER_LEFT">
                 <Text text="Name:" />
             </HBox>
             <HBox prefWidth="200" alignment="CENTER_LEFT">
-                <TextField promptText="Name"  />
+                <TextField fx:id="txt_prodName" promptText="Name"  />
             </HBox>
         </HBox>
         <HBox id="spaced_buttons">
@@ -53,7 +53,7 @@
                 <Text text="Inv:" />
             </HBox>
             <HBox prefWidth="200" alignment="CENTER_LEFT">
-                <TextField promptText="Inv"  />
+                <TextField fx:id="txt_prodInv" promptText="Inv"  />
             </HBox>
         </HBox>
         <HBox id="spaced_buttons">
@@ -61,7 +61,7 @@
                 <Text text="Price:" />
             </HBox>
             <HBox prefWidth="200" alignment="CENTER_LEFT">
-                <TextField promptText="Price"  />
+                <TextField fx:id="txt_prodPrice" promptText="Price"  />
             </HBox>
         </HBox>
         <HBox id="spaced_buttons">
@@ -69,13 +69,13 @@
                 <Text text="Min:" />
             </HBox>
             <HBox prefWidth="75" alignment="CENTER_LEFT">
-                <TextField promptText="Min"  />
+                <TextField fx:id="txt_prodMin" promptText="Min"  />
             </HBox>
-            <HBox prefWidth="75" alignment="CENTER_LEFT">
+            <HBox id="spaced_buttons" prefWidth="75" alignment="CENTER_LEFT">
                 <Text text="Max:" />
             </HBox>
             <HBox prefWidth="75" alignment="CENTER_LEFT">
-                <TextField promptText="Max"  />
+                <TextField fx:id="txt_prodMax" promptText="Max"  />
             </HBox>
         </HBox>
     </VBox> 
@@ -83,26 +83,27 @@
                GridPane.columnIndex="3" 
                GridPane.rowIndex="1" 
                GridPane.rowSpan="4" 
-               GridPane.columnSpan="3" >
+               GridPane.columnSpan="3" 
+               fx:id="tbl_parts">
         <columns>
             <TableColumn fx:id="add_part_ID" text="Part ID" prefWidth="75" >
                 <cellValueFactory>
-                    <PropertyValueFactory property="addPartID" />
+                    <PropertyValueFactory property="partID" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="add_part_Name" text="Part Name" prefWidth="100">
                 <cellValueFactory>
-                    <PropertyValueFactory property="addPartName" />
+                    <PropertyValueFactory property="name" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="add_part_Inv" text="Inventory Level" prefWidth="150">
                 <cellValueFactory>
-                    <PropertyValueFactory property="addPartInv" />
+                    <PropertyValueFactory property="inStock" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="add_part_Price" text="Price/Cost per Unit" prefWidth="175">
                 <cellValueFactory>
-                    <PropertyValueFactory property="addPartCost" />
+                    <PropertyValueFactory property="price" />
                 </cellValueFactory>
             </TableColumn>
         </columns> 
@@ -112,33 +113,34 @@
     </TableView>  
     
     <HBox GridPane.columnIndex="5" GridPane.rowIndex="5" alignment="CENTER_RIGHT">
-        <Button text="Add" onAction="#handleModifyProductAddPart" />
+        <Button text="Add"  onAction="#handleModifyProductAddPart"/>
     </HBox> 
     
     <TableView editable="true" 
                GridPane.columnIndex="3" 
                GridPane.rowIndex="6" 
                GridPane.rowSpan="3" 
-               GridPane.columnSpan="3" >
+               GridPane.columnSpan="3" 
+               fx:id="tbl_added_parts">
         <columns>
             <TableColumn fx:id="bom_part_ID" text="Part ID" prefWidth="75" >
                 <cellValueFactory>
-                    <PropertyValueFactory property="bomPartID" />
+                    <PropertyValueFactory property="partID" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="bom_part_Name" text="Part Name" prefWidth="100">
                 <cellValueFactory>
-                    <PropertyValueFactory property="bomPartName" />
+                    <PropertyValueFactory property="name" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="bom_part_Inv" text="Inventory Level" prefWidth="150">
                 <cellValueFactory>
-                    <PropertyValueFactory property="bomPartInv" />
+                    <PropertyValueFactory property="inStock" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn fx:id="bom_part_Price" text="Price/Cost per Unit" prefWidth="175">
                 <cellValueFactory>
-                    <PropertyValueFactory property="bomPartCost" />
+                    <PropertyValueFactory property="price" />
                 </cellValueFactory>
             </TableColumn>
         </columns> 
@@ -148,18 +150,15 @@
     </TableView>  
     
     <HBox GridPane.columnIndex="5" GridPane.rowIndex="10" alignment="CENTER_RIGHT">
-        <Button text="Delete" onAction="#handleModifyProductDelete"/>
+        <Button text="Delete" onAction="#handleModifyProductDelete" />
     </HBox> 
     
     <HBox GridPane.columnIndex="5" GridPane.rowIndex="11" alignment="CENTER_RIGHT">
         <HBox id="spaced_buttons">
-            <Button text="Save" onAction="#handleModifyProductSave"/>
+            <Button text="Save" onAction="#handleModifyProductSave" />
         </HBox>
-        <Button text="Cancel" onAction="#handleModifyProductCancel"/>
+        <Button text="Cancel" fx:id="cancelButton" onAction="#handleModifyProductCancel" />
     </HBox> 
-    
-    
-    
     
     <stylesheets>
         <URL value="@/styles/Styles.css" />
