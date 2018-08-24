@@ -114,7 +114,7 @@ public class ControllerModifyProduct implements Initializable {
         String messageCode = "";
     }
 
-    private ValidateReturn ValidatePart(String name, String inv, String price, String min, String max) {
+    private ValidateReturn ValidatePart(String name, String inv, String price, String min, String max, List<Part> partList) {
         ValidateReturn object = new ValidateReturn();
         if (name.equals("")) {
             object.validated = false;
@@ -165,13 +165,23 @@ public class ControllerModifyProduct implements Initializable {
             object.messageCode = "Inventory must be between or equal to min and max inventory values";
             return object;
         }
+        Double totCost = 0d;
+        
+        for(Part part: partList){
+            totCost += part.getPrice();
+        }
+        if(Double.parseDouble(price) < totCost){
+            object.validated = false;
+            object.messageCode = "Price of product cannot be less than the sum of its parts";
+            return object;
+        }
         return object;
     }
 
     @FXML
     protected void handleModifyProductSave(ActionEvent event) {
 
-        ValidateReturn returnObject = ValidatePart(txt_prodName.getText(), txt_prodInv.getText(), txt_prodPrice.getText(), txt_prodMin.getText(), txt_prodMax.getText());
+        ValidateReturn returnObject = ValidatePart(txt_prodName.getText(), txt_prodInv.getText(), txt_prodPrice.getText(), txt_prodMin.getText(), txt_prodMax.getText(), this.tempPartList);
 
         if (returnObject.validated == false) {
             System.out.println(returnObject.messageCode);
@@ -191,7 +201,6 @@ public class ControllerModifyProduct implements Initializable {
                 ArrayList<Part> partList = (ArrayList) this.tempPartList;
                 int prod_ID = Integer.parseInt(txt_prodID.getText());
                 Inventory inventory = Inventory.getInstance();
-//                int prod_ID = inventory.getNextProductID();
                 Product product = new Product(prod_ID, prod_Name, prod_Price, prod_Inv, prod_Min, prod_Max, partList);
                 inventory.updateProduct(product);
 
