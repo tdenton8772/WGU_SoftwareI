@@ -38,7 +38,7 @@ public class ControllerMain implements Initializable {
     private TableView tbl_parts;
 
     @FXML
-    TableView tbl_products;
+    private TableView tbl_products;
 
     @FXML
     private Button btn_addPart;
