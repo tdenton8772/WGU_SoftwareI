@@ -24,6 +24,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Region;
 
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -77,6 +78,7 @@ public class ControllerAddProduct implements Initializable {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Add Part Error");
                 alert.setContentText("Part already added to this BOM");
+                alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
                 alert.showAndWait();
             } else {
                 if (part != null) {
@@ -183,6 +185,7 @@ public class ControllerAddProduct implements Initializable {
             alert.setTitle("Modify Part Error");
             alert.setHeaderText("Data Validation Error");
             alert.setContentText(returnObject.messageCode);
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.showAndWait();
 
         } else {
@@ -215,7 +218,7 @@ public class ControllerAddProduct implements Initializable {
             Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Dialog");
             alert.setContentText("Are you sure you want to cancel?");
-
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 System.out.println("Add Part: Cancel was pushed");

@@ -22,6 +22,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -186,6 +187,7 @@ public class ControllerModifyPart implements Initializable {
             alert.setTitle("Modify Part Error");
             alert.setHeaderText("Data Validation Error");
             alert.setContentText(returnObject.messageCode);
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.showAndWait();
 
         } else {
@@ -230,7 +232,7 @@ public class ControllerModifyPart implements Initializable {
             Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Dialog");
             alert.setContentText("Are you sure you want to cancel?");
-
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 System.out.println("Modify Part: Cancel was pushed");

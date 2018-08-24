@@ -22,6 +22,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -166,11 +167,11 @@ public class ControllerModifyProduct implements Initializable {
             return object;
         }
         Double totCost = 0d;
-        
-        for(Part part: partList){
+
+        for (Part part : partList) {
             totCost += part.getPrice();
         }
-        if(Double.parseDouble(price) < totCost){
+        if (Double.parseDouble(price) < totCost) {
             object.validated = false;
             object.messageCode = "Price of product cannot be less than the sum of its parts";
             return object;
@@ -189,6 +190,7 @@ public class ControllerModifyProduct implements Initializable {
             alert.setTitle("Modify Part Error");
             alert.setHeaderText("Data Validation Error");
             alert.setContentText(returnObject.messageCode);
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.showAndWait();
 
         } else {
@@ -220,7 +222,7 @@ public class ControllerModifyProduct implements Initializable {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Dialog");
             alert.setContentText("Are you sure you want to cancel?");
-
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 System.out.println("Add Part: Cancel was pushed");
@@ -240,7 +242,7 @@ public class ControllerModifyProduct implements Initializable {
         Inventory inventory = Inventory.getInstance();
         tbl_parts.setItems(FXCollections.observableList(inventory.getPartList()));
         tbl_added_parts.setItems(FXCollections.observableList(this.tempPartList));
-        
+
         root.sceneProperty().addListener((observable, oldValue, newValue) -> {
             txt_prodID.setText(Integer.toString(this.product.getProductID()));
             txt_prodName.setText(this.product.getName());
@@ -248,7 +250,7 @@ public class ControllerModifyProduct implements Initializable {
             txt_prodPrice.setText(Double.toString(this.product.getPrice()));
             txt_prodMin.setText(Integer.toString(this.product.getMin()));
             txt_prodMax.setText(Integer.toString(this.product.getMax()));
-            for(Part part: this.product.getAssociatedPartList()){
+            for (Part part : this.product.getAssociatedPartList()) {
                 System.out.println(part);
                 this.tempPartList.add(part);
             };

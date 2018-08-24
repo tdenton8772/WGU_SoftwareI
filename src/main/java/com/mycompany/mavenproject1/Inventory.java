@@ -7,7 +7,11 @@ package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.layout.Region;
 
 /**
  *
@@ -86,9 +90,14 @@ public class Inventory {
         System.out.println(this.products);
     }
 
-    public void removeProduct(int index) {
-        this.products.remove(index);
-        System.out.println(this.products);
+    public boolean removeProduct(Product product) {
+        try{
+            this.products.remove(product);
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Error: Delete Part was pushed");
+            return false;
+        }
     }
 
     public Product lookupProduct(int index) {

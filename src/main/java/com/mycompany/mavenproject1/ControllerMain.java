@@ -24,6 +24,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -106,14 +107,14 @@ public class ControllerMain implements Initializable {
             alert.setTitle("Confirmation Dialog");
             alert.setHeaderText("You are deleting part: " + part.getName());
             alert.setContentText("Are you sure you want to do this?");
-
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 boolean deleted = inventory.deletePart(part);
                 System.out.println("Delete Part was pushed: " + deleted);
                 updateTable();
             } else {
-                System.out.println("User decided to not delete part: "+part.getName());
+                System.out.println("User decided to not delete part: " + part.getName());
             }
 
         } catch (Exception ex) {
@@ -156,9 +157,24 @@ public class ControllerMain implements Initializable {
     @FXML
     protected void handleDeleteProduct(ActionEvent event) {
         try {
-            System.out.println("Delete Product was pushed");
+            Inventory inventory = Inventory.getInstance();
+            Product product = (Product) tbl_products.getSelectionModel().getSelectedItem();
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("You are deleting product: " + product.getName());
+            alert.setContentText("Are you sure you want to do this?");
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                boolean deleted = inventory.removeProduct(product);
+                System.out.println("Delete Part was pushed: " + deleted);
+                updateTable();
+            } else {
+                System.out.println("User decided to not delete part: " + product.getName());
+            }
+
         } catch (Exception ex) {
-            System.out.println("Error: Delete Product was pushed");
+            System.out.println("Error: Delete Part was pushed");
         }
     }
 
