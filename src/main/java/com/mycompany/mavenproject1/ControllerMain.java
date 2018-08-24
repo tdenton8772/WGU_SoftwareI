@@ -7,6 +7,8 @@ import com.mycompany.mavenproject1.ModifyPartStage;
 import com.mycompany.mavenproject1.ModifyProductStage;
 import com.mycompany.mavenproject1.Part;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -31,6 +33,8 @@ import javafx.stage.Stage;
 
 public class ControllerMain implements Initializable {
 
+    List<Part> parts = new ArrayList<Part>();
+    List<Product> products = new ArrayList<Product>();
     @FXML
     private GridPane root;
 
@@ -42,6 +46,12 @@ public class ControllerMain implements Initializable {
 
     @FXML
     private Button btn_addPart;
+
+    @FXML
+    private TextField txt_partSearch;
+
+    @FXML
+    private TextField txt_productSearch;
 
     protected void updateTable() {
         System.out.println("Refresh Table");
@@ -63,7 +73,21 @@ public class ControllerMain implements Initializable {
     @FXML
     protected void handlePartSearch(ActionEvent event) {
         try {
-            System.out.println("Pressed Part Search");
+            Inventory inventory = Inventory.getInstance();
+            if (txt_partSearch.getText() != null) {
+                String partSearch = txt_partSearch.getText();
+                System.out.println("Pressed Part Search: " + partSearch);
+                List<Part> partList = inventory.lookupPart(partSearch);
+                tbl_parts.setItems(FXCollections.observableList(partList));
+                tbl_parts.refresh();
+                for (Part part : partList) {
+                    System.out.println("Found Part: " + part.getName());
+                }
+            } else {
+                tbl_parts.setItems(FXCollections.observableList(inventory.getPartList()));
+                tbl_parts.refresh();
+            }
+
         } catch (Exception ex) {
             System.out.println("Error: Part search pressed");
         }
@@ -124,11 +148,26 @@ public class ControllerMain implements Initializable {
 
     @FXML
     protected void handleProductSearch(ActionEvent event) {
-        try {
-            System.out.println("Pressed Product Search");
+try {
+            Inventory inventory = Inventory.getInstance();
+            if (txt_productSearch.getText() != null) {
+                String productSearch = txt_productSearch.getText();
+                System.out.println("Pressed Part Search: " + productSearch);
+                List<Product> productList = inventory.lookupProduct(productSearch);
+                tbl_products.setItems(FXCollections.observableList(productList));
+                tbl_products.refresh();
+                for (Product product : productList) {
+                    System.out.println("Found Part: " + product.getName());
+                }
+            } else {
+                tbl_products.setItems(FXCollections.observableList(inventory.getPartList()));
+                tbl_products.refresh();
+            }
+
         } catch (Exception ex) {
-            System.out.println("Error: Product search pressed");
+            System.out.println("Error: Part search pressed");
         }
+    
     }
 
     @FXML
@@ -190,7 +229,7 @@ public class ControllerMain implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Inventory inventory = Inventory.getInstance();
-
+        updateTable();
         tbl_parts.setItems(FXCollections.observableList(inventory.getPartList()));
         tbl_products.setItems(FXCollections.observableList(inventory.getProductList()));
 

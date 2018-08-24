@@ -34,7 +34,7 @@
                 <HBox id="spaced_buttons">
                     <Button text="Search" onAction="#handlePartSearch" />
                 </HBox>
-                <TextField  />
+                <TextField  fx:id="txt_partSearch" />
             </HBox>
         </HBox>
         
@@ -90,7 +90,7 @@
                 <HBox id="spaced_buttons">
                     <Button text="Search" onAction="#handleProductSearch" />
                 </HBox>
-                <TextField  />
+                <TextField fx:id="txt_productSearch" />
             </HBox>
         </HBox>
         <TableView editable="true" fx:id="tbl_products">

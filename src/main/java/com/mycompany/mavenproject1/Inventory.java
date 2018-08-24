@@ -29,10 +29,10 @@ public class Inventory {
 
     }
 
-    public List getProductList(){
+    public List getProductList() {
         return this.products;
     }
-    
+
     public List getPartList() {
         return this.parts;
     }
@@ -54,9 +54,14 @@ public class Inventory {
         System.out.println(this.parts);
     }
 
-    public Part lookupPart(int index) {
-        Part part = this.parts.get(index);
-        return part;
+    public List<Part> lookupPart(String partName) {
+        List<Part> tempPartList = new ArrayList<Part>();
+        for (Part part : this.parts) {
+            if (part.getName().contains(partName)) {
+                tempPartList.add(part);
+            }
+        }
+        return tempPartList;
     }
 
     public boolean deletePart(Part part) {
@@ -91,7 +96,7 @@ public class Inventory {
     }
 
     public boolean removeProduct(Product product) {
-        try{
+        try {
             this.products.remove(product);
             return true;
         } catch (Exception ex) {
@@ -100,9 +105,14 @@ public class Inventory {
         }
     }
 
-    public Product lookupProduct(int index) {
-        Product product = this.products.get(index);
-        return product;
+    public List<Product> lookupProduct(String productName) {
+        List<Product> tempProductList = new ArrayList<Product>();
+        for (Product product : this.products) {
+            if (product.getName().contains(productName)) {
+                tempProductList.add(product);
+            }
+        }
+        return tempProductList;
     }
 
     public void updateProduct(Product product) {

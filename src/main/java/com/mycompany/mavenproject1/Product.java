@@ -80,11 +80,11 @@ public class Product {
         return true;
     }
     
-    public Part lookupAssociatedPart(int index){
+    public List<Part> lookupAssociatedPart(String name){
 //        Not sure what this method is supposed to do?
         Inventory inventory = Inventory.getInstance();
-        Part part = inventory.lookupPart(index);
-        return part;
+        List<Part> partList = inventory.lookupPart(name);
+        return partList;
     }
 
     public List<Part> getAssociatedPartList(){
